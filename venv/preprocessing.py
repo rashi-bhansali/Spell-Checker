@@ -2,6 +2,7 @@ import string
 
 def z_array(s):
     """ Use Z algorithm to preprocess s """
+    print(s)
     assert len(s) > 1
     z = [len(s)] + [0] * (len(s)-1)
     # Initial comparison of s[1:] with prefix
@@ -121,6 +122,8 @@ class BoyerMoore(object):
         # Make bad character rule table
         self.bad_char = dense_bad_char_tab(p, self.amap)
         # Create good suffix rule table
+        if(len(p)%2!=0):
+            p=p+' '
         self.big_l, _, self.small_l_prime = good_suffix_table(p)
     
     def bad_character_rule(self, i, c):
